@@ -6,7 +6,7 @@ import {
   MenuOutlined,
   SearchOutlined,
 } from "@mui/icons-material";
-import { useNavigate, userNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { shades } from "../../theme";
 import { setIsCartOpen } from "../../state";
 
