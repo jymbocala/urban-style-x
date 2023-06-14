@@ -13,6 +13,7 @@ import {
 } from "../../state";
 import { useNavigate } from "react-router-dom";
 
+// Custom styled component using Emotion
 const FlexBox = styled(Box)`
   display: Flex;
   justify-content: space-between;
@@ -25,6 +26,7 @@ const CartMenu = () => {
   const cart = useSelector((state) => state.cart.cart);
   const isCartOpen = useSelector((state) => state.cart.isCartOpen);
 
+  // Calculate the total price of items in the cart
   const totalPrice = cart.reduce((total, item) => {
     return total + item.count * item.attributes.price;
   }, 0);
