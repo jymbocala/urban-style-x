@@ -25,7 +25,7 @@ const Item = ({ item, width }) => {
         },
       },
     },
-  } = image;
+  } = image; // Extracts the URL of the item's image
 
   return (
     <Box width={width}>
@@ -44,7 +44,7 @@ const Item = ({ item, width }) => {
           style={{ cursor: "pointer" }}
         />
         <Box
-          display={isHovered ? "block" : "none"} // "blocked" in the tutorial
+          display={isHovered ? "block" : "none"} // Displays the quantity controls and add to cart button when isHovered is true
           position="absolute"
           bottom="10%"
           left="0"
@@ -52,7 +52,7 @@ const Item = ({ item, width }) => {
           padding="0 5%"
         >
           <Box display="flex" justifyContent="space-between">
-            {/* AMOUNT */}
+            {/* QUANTITY CONTROLS */}
             <Box
               display="flex"
               alignItems="center"
@@ -60,7 +60,7 @@ const Item = ({ item, width }) => {
               borderRadius="3px"
             >
               <IconButton
-                onClick={() => setCount(Math.max(count - 1, 1))} // ensures the count doesn't go below '1'
+                onClick={() => setCount(Math.max(count - 1, 1))} // Decreases the count by 1, ensuring it doesn't go below 1
               >
                 <RemoveIcon />
               </IconButton>
@@ -70,9 +70,9 @@ const Item = ({ item, width }) => {
               </IconButton>
             </Box>
 
-            {/* BUTTON */}
+            {/* ADD TO CART BUTTON */}
             <Button
-              onClick={() => dispatch(addToCart({ item: { ...item, count } }))}
+              onClick={() => dispatch(addToCart({ item: { ...item, count } }))} // Dispatches the addToCart action with the item and count as payload
               sx={{
                 backgroundColor: shades.primary[300],
                 color: "white",
@@ -88,7 +88,9 @@ const Item = ({ item, width }) => {
         <Typography variant="subtitle2" color={neutral.dark}>
           {category
             .replace(/[(A-Z)]/g, " $1")
-            .replace(/^./, (str) => str.toUpperCase())}
+            .replace(/^./, (str) => str.toUpperCase())
+            // Formats the category text to have proper capitalization
+          }
         </Typography>
         <Typography>{name}</Typography>
         <Typography fontWeight="bold">{price}</Typography>
