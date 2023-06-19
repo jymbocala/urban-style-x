@@ -22,6 +22,7 @@ const Subscribe = () => {
         width="75%"
         backgroundColor="#f2f2f2"
       >
+        {/* InputBase component for email input */}
         <InputBase //simpler of an input component from mui
           sx={{
             ml: 1,
