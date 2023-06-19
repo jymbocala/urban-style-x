@@ -20,7 +20,7 @@ const Item = ({ item, width }) => {
   const {
     data: {
       attributes: {
-        format: {
+        formats: {
           medium: { url },
         },
       },
