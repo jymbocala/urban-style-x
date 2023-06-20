@@ -11,7 +11,7 @@ import Item from "../../components/Item";
 
 const ItemDetails = () => {
   const dispatch = useDispatch();
-  const { itemId } = useParams();
+  const { itemId } = useParams(); // Extract the itemId from URL parameters set from routes
   const [value, setValue] = useState("description");
   const [count, setCount] = useState(1); // how many we want to add in the cart
   const [item, setItem] = useState(null); // data taken from the database using itemId
@@ -127,7 +127,9 @@ const ItemDetails = () => {
                 CATEGORIES:{" "}
                 {item?.attributes?.category
                   .replace(/([A-Z])/g, " $1")
-                  .replace(/^./, (str) => str.toUpperCase())}
+                  .replace(/^./, (str) => str.toUpperCase())
+                  // correctly formats category string  
+                }
               </Typography>
             </Box>
           </Box>
@@ -135,6 +137,7 @@ const ItemDetails = () => {
 
         {/* INFORMATION SECTION */}
         <Box m="20px 0">
+          {/* Tabs for switching between description and reviews */}
           <Tabs value={value} onChange={handleChange}>
             <Tab label="DESCRIPTION" value="description" />
             <Tab label="REVIEWS" value="reviews" />
@@ -144,8 +147,9 @@ const ItemDetails = () => {
           {value === "description" && (
             <div>{item?.attributes?.longDescription}</div>
           )}
+          {/* Placeholder for reviews (no review functionality yet) */}
           {value === "reviews" && (
-            <div>reviews</div> // no review funtionality yet
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis voluptate praesentium ducimus a nostrum odio cumque nesciunt tenetur nobis quisquam, quaerat aut dolorem expedita dolorum. Accusamus praesentium corporis cumque aut sunt voluptas quasi nobis, officia consequatur, molestiae quidem optio, eius quo rerum odio esse necessitatibus exercitationem facilis reprehenderit laborum explicabo?</div>
           )}
         </Box>
 
