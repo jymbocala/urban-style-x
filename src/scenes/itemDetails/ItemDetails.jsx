@@ -36,7 +36,10 @@ const ItemDetails = () => {
       { method: "GET" }
     );
     const itemsJson = await items.json();
-    console.log("🚀 ~ file: ItemDetails.jsx:39 ~ getItems ~ itemsJson:", itemsJson)
+    console.log(
+      "🚀 ~ file: ItemDetails.jsx:39 ~ getItems ~ itemsJson:",
+      itemsJson
+    );
     setItems(itemsJson.data);
   }
 
@@ -120,7 +123,12 @@ const ItemDetails = () => {
                 <FavoriteBorderOutlinedIcon />
                 <Typography sx={{ ml: "5px" }}>ADD TO WISHLIST</Typography>
               </Box>
-              <Typography>CATEGORIES: {item?.attributes?.category}</Typography>
+              <Typography>
+                CATEGORIES:{" "}
+                {item?.attributes?.category
+                  .replace(/([A-Z])/g, " $1")
+                  .replace(/^./, (str) => str.toUpperCase())}
+              </Typography>
             </Box>
           </Box>
         </Box>
@@ -146,7 +154,13 @@ const ItemDetails = () => {
           <Typography variant="h3" fontWeight="bold">
             Related Products
           </Typography>
-          <Box mt="20px" display="flex" flexWrap="wrap" columnGap="1.33%" justifyContent="space-between" >
+          <Box
+            mt="20px"
+            display="flex"
+            flexWrap="wrap"
+            columnGap="1.33%"
+            justifyContent="space-between"
+          >
             {items?.slice(0, 4).map((item, i) => (
               <Item key={`${item.name}-${i}`} item={item} />
             ))}
