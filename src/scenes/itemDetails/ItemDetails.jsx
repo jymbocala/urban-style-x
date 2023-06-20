@@ -24,7 +24,7 @@ const ItemDetails = () => {
   async function getItem() {
     const item = await fetch(
       `http://localhost:1337/api/items/${itemId}?populate=image`,
-      { method: "get " }
+      { method: "GET" }
     );
     const itemJson = await item.json();
     setItem(itemJson.data);
@@ -54,7 +54,7 @@ const ItemDetails = () => {
           <Box flex="1 1 40%" mb="40px">
             <img
               alt={item?.name}
-              src={`http://localhost:1337/${item?.attributes?.image?.data?.attributes?.formats?.meduim?.url}`}
+              src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
               width="100%"
               height="100%"
               style={{
@@ -72,7 +72,7 @@ const ItemDetails = () => {
 
             <Box m="60px 0 25px 0">
               <Typography variant="h3">{item?.attributes?.name}</Typography>
-              <Typography>{item?.attributes?.price}</Typography>
+              <Typography>${item?.attributes?.price}</Typography>
               <Typography sx={{ mt: "20px" }}>
                 {item?.attributes?.longDescription}
               </Typography>
@@ -109,7 +109,7 @@ const ItemDetails = () => {
                   dispatch(addToCart({ item: { ...item, count } }))
                 }
               >
-                ADD TO CART\
+                ADD TO CART
               </Button>
             </Box>
 

@@ -56,7 +56,7 @@ const ShoppingList = () => {
         value={value}
         onChange={handleChange}
         centered
-        TabInidicatorProps={{ sx: { display: isNonMobile ? "block" : "none" } }} // custimize the tab indicator
+        tabinidicatorprops={{ sx: { display: isNonMobile ? "block" : "none" } }} // custimize the tab indicator
         sx={{
           m: "25px",
           "& .MuiTabs-flexContainer": {
