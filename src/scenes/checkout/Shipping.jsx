@@ -19,7 +19,7 @@ const Shipping = ({
         {/* Render the AddressForm component for billing address */}
         <AddressForm
           type="billingAddress"
-          value={values.billingAddress} // The value of the form input for billing address
+          values={values.billingAddress} // The value of the form input for billing address
           errors={errors} // Errors object that contains error messages for validation
           touched={touched} // Boolean indicating whether the field has been touched
           handleBlur={handleBlur} // Handler for the onBlur event of the input field
@@ -34,7 +34,7 @@ const Shipping = ({
           control={
             <Checkbox
               defaultChecked
-              values={values.shippingAddress.isSameAddress} // The value of the checkbox for same shipping address
+              value={values.shippingAddress.isSameAddress} // The value of the checkbox for same shipping address
               onChange={() =>
                 setFieldValue(
                   "shippingAddress.isSameAddress",
@@ -55,7 +55,7 @@ const Shipping = ({
           </Typography>
           <AddressForm
             type="shippingAddress"
-            value={values.shippingAddress} // The value of the form input for shipping address
+            values={values.shippingAddress} // The value of the form input for shipping address
             errors={errors} // Errors object that contains error messages for validation
             touched={touched} // Boolean indicating whether the field has been touched
             handleBlur={handleBlur} // Handler for the onBlur event of the input field

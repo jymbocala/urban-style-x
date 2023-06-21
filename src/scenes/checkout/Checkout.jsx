@@ -18,7 +18,7 @@ const initialValues = {
     zipCode: "",
   },
   shippingAddress: {
-    isSameAddress: true, 
+    isSameAddress: true,
     firstName: "",
     lastName: "",
     country: "",
@@ -29,8 +29,8 @@ const initialValues = {
     zipCode: "",
   },
   email: "",
-  phoneNumber: ""
-}
+  phoneNumber: "",
+};
 
 //validation for formik component
 const checkoutSchema = [
@@ -84,9 +84,8 @@ const checkoutSchema = [
   yup.object().shape({
     email: yup.string().required("required"),
     phoneNumber: yup.string().required("required"),
-  })
-]
-
+  }),
+];
 
 const Checkout = () => {
   const [activeStep, setActiveStep] = useState(0); // determines what step of the process we are at
@@ -102,7 +101,7 @@ const Checkout = () => {
 
   return (
     <Box width="80%" m="100px auto">
-      <Stepper active={activeStep} sx={{m: "20px 0"}}>
+      <Stepper active={activeStep} sx={{ m: "20px 0" }}>
         <Step>
           <StepLabel>Billing</StepLabel>
         </Step>
@@ -123,11 +122,11 @@ const Checkout = () => {
             handleBlur,
             handleChange,
             handleSubmit,
-            setFieldValue
+            setFieldValue,
           }) => (
             <form onSubmit={handleSubmit}>
-              {isFirst && (
-                <Shipping 
+              {isFirstStep && (
+                <Shipping
                   values={values}
                   errors={errors}
                   touched={touched}
