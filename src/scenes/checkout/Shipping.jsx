@@ -16,13 +16,14 @@ const Shipping = ({
         <Typography sx={{ mb: "15px" }} fontSize="18px">
           Billing Information
         </Typography>
+        {/* Render the AddressForm component for billing address */}
         <AddressForm
           type="billingAddress"
-          value={values.billingAddress} // what the user types in the form
-          errors={errors} // represent the error text provided in the validation schema
-          touched={touched} // if the user has clicked the field or typing: boolean
-          handleBlur={handleBlur} // when the user clicks in and out of the input
-          handleChange={handleChange} // value that gets changed when the user is typing
+          value={values.billingAddress} // The value of the form input for billing address
+          errors={errors} // Errors object that contains error messages for validation
+          touched={touched} // Boolean indicating whether the field has been touched
+          handleBlur={handleBlur} // Handler for the onBlur event of the input field
+          handleChange={handleChange} // Handler for the onChange event of the input field
         />
       </Box>
 
@@ -33,32 +34,33 @@ const Shipping = ({
           control={
             <Checkbox
               defaultChecked
-              values={values.shippingAddress.isSameAddress}
+              values={values.shippingAddress.isSameAddress} // The value of the checkbox for same shipping address
               onChange={() =>
                 setFieldValue(
                   "shippingAddress.isSameAddress",
                   !values.shippingAddress.isSameAddress
                 )
-              }
+              } // Toggle the value of 'isSameAddress' in the form values
             />
           }
         />
       </Box>
 
       {/* SHIPPING FORM */}
+      {/* Render the AddressForm component for shipping address if 'isSameAddress' is false */}
       {!values.shippingAddress.isSameAddress && (
         <Box>
           <Typography sx={{ mb: "15px" }} fontSize="18px">
             Shipping Information
           </Typography>
           <AddressForm
-          type="shippingAddress"
-          value={values.shippingAddress}
-          errors={errors}
-          touched={touched}
-          handleBlur={handleBlur}
-          handleChange={handleChange}
-        />
+            type="shippingAddress"
+            value={values.shippingAddress} // The value of the form input for shipping address
+            errors={errors} // Errors object that contains error messages for validation
+            touched={touched} // Boolean indicating whether the field has been touched
+            handleBlur={handleBlur} // Handler for the onBlur event of the input field
+            handleChange={handleChange} // Handler for the onChange event of the input field
+          />
         </Box>
       )}
     </Box>
