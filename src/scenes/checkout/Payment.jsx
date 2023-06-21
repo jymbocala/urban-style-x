@@ -17,8 +17,8 @@ const Payment = ({ values, touched, errors, handleBlur, handleChange }) => {
           onChange={handleChange}
           value={values.email}
           name="email"
-          error={!!touched.email && !!errors.email}
-          helperText={touched.email && errors.email}
+          error={!!touched.email && !!errors.email} // Checking if email field is touched and has an error
+          helperText={touched.email && errors.email} // Displaying error message for the email field
           sx={{ gridColumn: "span 4", marginBottom: "15px" }}
         />
         {/* Phone Number */}
@@ -30,8 +30,8 @@ const Payment = ({ values, touched, errors, handleBlur, handleChange }) => {
           onChange={handleChange}
           value={values.phoneNumber}
           name="phoneNumber"
-          error={!!touched.phoneNumber && !!errors.phoneNumber}
-          helperText={touched.phoneNumber && errors.phoneNumber}
+          error={!!touched.phoneNumber && !!errors.phoneNumber} // Checking if phone number field is touched and has an error
+          helperText={touched.phoneNumber && errors.phoneNumber} // Displaying error message for the phone number field
           sx={{ gridColumn: "span 4" }}
         />
       </Box>
